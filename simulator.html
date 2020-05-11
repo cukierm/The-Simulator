@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simulation-based Inference Home Page</title>
+
+    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Marck+Script" />
+
+</head>
+<body>
+
+    <header class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <div class="row my-auto">
+                <div class="col d-flex justify-content-center">
+                    <h1>Simulator</h1>
+                </div>
+            </div>
+        </div>
+    </header>  
+
+    <nav class="navbar navbar-expand navbar-dark sticky-top">
+        <div class="collapse navbar-collapse d-flex justify-content-around justify-content-md-start" id="theNavbar">
+            <ul class="navbar-nav">
+                <li class="nav-item active"><a class="nav-link" href="index.html">Tutorial</a></li>
+                <li class="nav-item active"><a class="nav-link" href="guided-example.html">Guided Example</a></li>
+                <li class="nav-item active"><a class="nav-link" href="#">The Simulator</a></li>
+            </ul>
+        </div>
+    </nav>
+
+   <div class="row mt-3">
+        <div class="col-md-4 col-sm-6">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="mx-auto">Get Ready to Simulate!</h3>
+                </div>
+                <div class="card-body">
+                    <form>        
+                        <div class="form-group form-inline">
+                            <label for="pHat" class="form-label" data-toggle="tooltip" data-placement="top" title="Enter the sample proportion"> p&#770 = &nbsp</label>
+                            <input type="text" class="form-control form-control-sm col-2" id="pHat">
+                        </div>
+                        <div class="form-group form-inline">
+                            <label for="Ho" class="form-label" data-toggle="tooltip" data-placement="top" title="The null hypothesis is a statement about the population proportion that says there is nothing significant going on. Enter this population proportion."> Ho: p = &nbsp</label>
+                            <input type="text" class="form-control form-control-sm col-2" id="Ho">
+                        </div>
+                        <p data-toggle="tooltip" data-placement="top" title="The alternative hypothesis says that the population proportion is either &lt; or &gt; the null hypothesis. Choose the statement of the alternative hypothesis that matches what you want to show.">Ha:</p>
+                        <div class="form-group form-inline">
+                            <label for="HaLt" class="form-check-label">p &lt; p&#770 &nbsp;</label>
+                            <input type="radio" class="form-check-radio" name="HaRadio" id="HaLt">
+                        </div>
+                        <div class="form-group form-inline">
+                            <label for="HaGt" class="form-check-label">p &gt; p&#770 &nbsp;</label>
+                            <input type="radio" class="form-check-radio" name="HaRadio" id="HaGt">
+                        </div>
+                        <div class="form-group form-inline">
+                            <label for="n" data-toggle="tooltip" data-placement="top" title="Enter the sample size">n = &nbsp</label>
+                            <input type="text" class="form-control form-control-sm col-2" id="n">
+                        </div>
+                        <button type="button" value="Go!" onclick="computeSamples()">Go!</button>
+                    
+                    </form> 
+                </div>
+            </div>
+        </div>
+
+        <div class="col" id="results-container">
+            <h3 style="color:#25283D">Analysis:</h3>
+            <p>Drawing 50 samples...</p>
+            <p id="output"></p> <!-- results of the simulation go here -->
+            <p id="analysis1"></p> <!-- here we explain how computing the P-value works-->
+            <p id="analysis2"></p>
+        </div>
+    </div>
+
+
+    <script src="node_modules/jquery/dist/jquery.slim.min.js"></script>
+    <script src="node_modules/popper.js/dist/umd/popper.min.js"></script>
+    <script src="node_modules/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- <script src="js/event-handlers.js"></script>  -->
+    <script src="js/simulator.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
+
+</body>
+</html>
